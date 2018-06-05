@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Win %</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%= @stats[:percent].round(2) %></td>
+    <td><%= @stats[:wins] %></td>
+    <td><%= @stats[:losses] %></td>
+    <td><%= @stats[:total_games] %></td>
+  </tr>
+  <tr>
+    <td>Top</td>
+    <td><%= @stats[:top][:percent].round(2) %></td>
+    <td><%= @stats[:top][:wins] %></td>
+    <td><%= @stats[:top][:losses] %></td>
+    <td><%= @stats[:top][:total] %></td>
+  </tr>
+  <tr>
+    <td>Mid</td>
+    <td><%= @stats[:mid][:percent].round(2) %></td>
+    <td><%= @stats[:mid][:wins] %></td>
+    <td><%= @stats[:mid][:losses] %></td>
+    <td><%= @stats[:mid][:total] %></td>
+  </tr>
+  <tr>
+    <td>Jun</td>
+    <td><%= @stats[:jun][:percent].round(2) %></td>
+    <td><%= @stats[:jun][:wins] %></td>
+    <td><%= @stats[:jun][:losses] %></td>
+    <td><%= @stats[:jun][:total] %></td>
+  </tr>
+  <tr>
+    <td>ADC</td>
+    <td><%= @stats[:adc][:percent].round(2) %></td>
+    <td><%= @stats[:adc][:wins] %></td>
+    <td><%= @stats[:adc][:losses] %></td>
+    <td><%= @stats[:adc][:total] %></td>
+  </tr>
+  <tr>
+    <td>Sup</td>
+    <td><%= @stats[:sup][:percent].round(2) %></td>
+    <td><%= @stats[:sup][:wins] %></td>
+    <td><%= @stats[:sup][:losses] %></td>
+    <td><%= @stats[:sup][:total] %></td>
+  </tr>
+</table>

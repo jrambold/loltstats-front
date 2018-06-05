@@ -23,6 +23,11 @@ class BackendService
     get_url("/teams/best_by_position")
   end
 
+  def solo_stats(username)
+    @headers['player'] = username
+    get_url("/teams/solo_stats")
+  end
+
   private
     attr_reader :headers
 

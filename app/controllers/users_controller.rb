@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @stats = @user.stats
+    @stats = @user.stats(@user)
   end
 
   private

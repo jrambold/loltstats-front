@@ -14,6 +14,8 @@
             <li>
               <% if current_user %>
                 <%= link_to current_user.name, google_user_path(current_user) %>
+            </li>
+            <li>
                 <%= link_to 'Logout', logout_path %>
               <% else %>
                 <%= link_to "Log In", google_oauth2_login_path %>

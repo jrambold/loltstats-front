@@ -3,6 +3,7 @@ class GoogleUser < ApplicationRecord
   validates_uniqueness_of :email
 
   has_many :users
+  has_many :teams, through: :users
 
   def self.update_or_create(auth)
     user = GoogleUser.find_by(email: auth['info']['email']) || GoogleUser.new

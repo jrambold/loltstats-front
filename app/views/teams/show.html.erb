@@ -4,24 +4,23 @@
   <li><%= link_to player.leaguename, user_path(player) %></li>
 <% end %>
 </ul>
-
-<table>
+<table class="table">
   <tr>
-    <th>Role</th>
-    <th>Best</th>
-    <th>Win %</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Total</th>
+    <th scope="col">Role</th>
+    <th scope="col">Best</th>
+    <th scope="col">Win %</th>
+    <th scope="col">Wins</th>
+    <th scope="col">Losses</th>
+    <th scope="col">Total</th>
   </tr>
   <% @best.each do |lane| %>
     <tr>
-      <td><%= lane.role %></td>
-      <td><%= lane.name %></td>
-      <td><%= lane.percent %></td>
-      <td><%= lane.wins %></td>
-      <td><%= lane.losses %></td>
-      <td><%= lane.total %></td>
+      <td scope="col"><%= lane.role %></td>
+      <td scope="col"><%= lane.name %></td>
+      <td scope="col"><%= lane.percent %></td>
+      <td scope="col"><%= lane.wins %></td>
+      <td scope="col"><%= lane.losses %></td>
+      <td scope="col"><%= lane.total %></td>
     </tr>
   <% end %>
 </table>

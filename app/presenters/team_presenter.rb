@@ -12,12 +12,12 @@ class TeamPresenter
 
     def lanestats(best)
       best.each do |lane|
-        # @lanes << Lane.new(lane[0],
-        #         lane[1][:name],
-        #         lane[1][:percent],
-        #         lane[1][:wins],
-        #         lane[1][:losses],
-        #         lane[1][:total])
+        @lanes << Lane.new(lane[0],
+                lane[1][:name],
+                lane[1][:percent],
+                lane[1][:wins],
+                lane[1][:losses],
+                lane[1][:total])
       end
 
     end
@@ -31,7 +31,7 @@ class Lane
               :losses,
               :total
 
-  def initialize(role, name, percent, wins, losses, total)
+  def initialize(role=nil, name=nil, percent=nil, wins=nil, losses=nil, total=nil)
     @role = role
     @name = name
     @percent = percent

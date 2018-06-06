@@ -1,7 +1,7 @@
 <h1>Team <%= @team.name %></h1>
 <ul>
-<% @team.users.each do |user| %>
-  <li><%= user.leaguename %></li>
+<% @team.users.each do |player| %>
+  <li><%= link_to player.leaguename, user_path(player) %></li>
 <% end %>
 </ul>
 
@@ -26,5 +26,3 @@
   <% end %>
 </table>
 <h6>Minimum 6 Games</h6>
-
-<%= @thing %>

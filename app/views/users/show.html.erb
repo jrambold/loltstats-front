@@ -1,40 +1,47 @@
 <h2><%= @user.leaguename %></h2>
 <h3>Solo Stats</h3>
-<table>
-  <tr>
-    <th>Role</th>
-    <th>Win %</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Total</th>
-  </tr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope"col">Role</th>
+        <th scope"col">Win %</th>
+        <th scope"col">Wins</th>
+        <th scope"col">Losses</th>
+        <th scope"col">Total</th>
+        </tr>
+    </thead>
   <% @solo_stats.each do |lane| %>
-    <tr>
-      <td><%= lane.role %></td>
-      <td><%= lane.percent %></td>
-      <td><%= lane.wins %></td>
-      <td><%= lane.losses %></td>
-      <td><%= lane.total %></td>
-    </tr>
+    <tbody>
+        <tr>
+          <td scope"col"><%= lane.role %></td>
+          <td scope"col"><%= lane.percent %></td>
+          <td scope"col"><%= lane.wins %></td>
+          <td scope"col"><%= lane.losses %></td>
+          <td scope"col"><%= lane.total %></td>
+        </tr>
+    </tbody>
   <% end %>
 </table>
-
 <h3>Flex Stats</h3>
 <table>
-  <tr>
-    <th>Role</th>
-    <th>Win %</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Total</th>
-  </tr>
+    <thead class="thead-dark">
+        <tr>
+            <th scope"col">Role</th>
+            <th scope"col">Win %</th>
+            <th scope"col">Wins</th>
+            <th scope"col">Losses</th>
+            <th scope"col">Total</th>
+        </tr>
+    </thead>
   <% @flex_stats.each do |lane| %>
-    <tr>
-      <td><%= lane.role %></td>
-      <td><%= lane.percent %></td>
-      <td><%= lane.wins %></td>
-      <td><%= lane.losses %></td>
-      <td><%= lane.total %></td>
-    </tr>
+    <tbody>
+        <tr>
+          <td scope"col"><%= lane.role %></td>
+          <td scope"col"><%= lane.percent %></td>
+          <td scope"col"><%= lane.wins %></td>
+          <td scope"col"><%= lane.losses %></td>
+          <td scope"col"><%= lane.total %></td>
+        </tr>
+    </tbody>
   <% end %>
 </table>

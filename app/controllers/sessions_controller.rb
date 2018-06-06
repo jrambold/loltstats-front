@@ -3,14 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_path
-    else
-      flash[:error] = 'Incorrect Username or Password'
-      redirect_to login_path
-    end
+    guser = GoogleUser.update_or_create(request.env['omniauth.auth'])
+    session[:id] = guser.id
+    redirect_to root_path
   end
 
   def destroy

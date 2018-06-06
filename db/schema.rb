@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_165712) do
+ActiveRecord::Schema.define(version: 2018_06_06_132452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "google_users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "google_sso_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
@@ -23,17 +31,16 @@ ActiveRecord::Schema.define(version: 2018_05_29_165712) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "leaguename"
-    t.string "email"
     t.integer "server", default: 0
-    t.string "password_digest"
-    t.boolean "active", default: false
     t.bigint "team_id"
+    t.bigint "google_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["google_user_id"], name: "index_users_on_google_user_id"
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "users", "google_users"
   add_foreign_key "users", "teams"
 end

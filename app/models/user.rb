@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :team
-  has_secure_password
+  belongs_to :google_user
 
   after_create do |user|
     add_user(user)
@@ -23,12 +23,12 @@ class User < ApplicationRecord
   private
     def add_teammember(user)
       backend = Backend.new
-      backend.add_team(user)
+      backend.add_teammember(user)
     end
 
     def delete_teammember(user)
       backend = Backend.new
-      backend.delete_team(user)
+      backend.delete_teammember(user)
     end
 
 end

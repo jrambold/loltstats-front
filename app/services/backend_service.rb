@@ -8,8 +8,6 @@ class BackendService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  path('custom_team', views.custom_team, name='custom_team'),
-
   def get_teams
     get_url("/teams/list")
   end

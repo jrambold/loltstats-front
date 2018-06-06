@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_teams
-  has_many :teams, through: :user_teams
+  belongs_to :team
   has_secure_password
 
   def stats(user)

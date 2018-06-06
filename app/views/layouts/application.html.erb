@@ -16,7 +16,7 @@
         <%= link_to current_user.username, user_path(current_user) %>
         <ul>
         <% current_user.teams.each do |team| %>
-          <li><%= link_to team.team, team_path(team) %></li>
+          <li><%= link_to team.name, team_path(team) %></li>
         <% end %>
         </ul>
         <%= link_to 'Logout', logout_path %>

@@ -1,6 +1,5 @@
 class Team < ApplicationRecord
-  has_many :user_teams
-  has_many :users, through: :user_teams
+  has_many :users, dependent: :destroy
 
   def self.backend_teams
     bs = BackendService.new()
@@ -18,4 +17,6 @@ class Team < ApplicationRecord
     bs = BackendService.new()
     players = bs.best_by_position(team, min)
   end
+
+
 end

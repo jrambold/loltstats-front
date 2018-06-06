@@ -1,11 +1,10 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.backend_teams
+    @teams = Team.all()
   end
 
   def show
     @team = Team.find(params[:id])
-    @players = @team.backend_players
-    @best = @team.best_by_position(6)
+    @best = TeamPresenter.new(@team.best_by_position).lanes
   end
 end

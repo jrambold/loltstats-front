@@ -31,16 +31,16 @@ class Backend
     raw_data = backend.update_team_flex_matches(team.name)
   end
 
-  def update_solo_matches(player_name)
+  def update_solo_matches(user)
     raw_data = backend.update_solo_matches(user.leaguename)
   end
 
-  def best_by_position(team, min_games=6)
+  def best_by_position(team, min_games)
     raw_data = backend.best_by_position(team.name, min_games)
   end
 
   def solo_stats(user)
-    raw_data = backend.get_team_players(user.leaguename)
+    raw_data = backend.solo_stats(user.leaguename)
   end
 
   def custom_team(player_top, player_mid, player_jun, player_adc, player_sup)
@@ -53,7 +53,7 @@ class Backend
     custom_team(top, mid, jun, adc, sup)
   end
 
-  def single_player_flex_stats(player_name)
+  def single_player_flex_stats(user)
     raw_data = backend.single_player_flex_stats(user.leaguename)
   end
 

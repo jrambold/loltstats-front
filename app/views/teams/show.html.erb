@@ -1,7 +1,7 @@
-<h1>Team <%= @team.team %></h1>
+<h1>Team <%= @team.name %></h1>
 <ul>
-<% @players.each do |player| %>
-  <li><%= player %></li>
+<% @team.users.each do |user| %>
+  <li><%= user.leaguename %></li>
 <% end %>
 </ul>
 
@@ -14,45 +14,15 @@
     <th>Losses</th>
     <th>Total</th>
   </tr>
-  <tr>
-    <td>Top</td>
-    <td><%= @best[:top][:name] %></td>
-    <td><%= @best[:top][:percent].round(2) %></td>
-    <td><%= @best[:top][:wins] %></td>
-    <td><%= @best[:top][:losses] %></td>
-    <td><%= @best[:top][:total] %></td>
-  </tr>
-  <tr>
-    <td>Mid</td>
-    <td><%= @best[:mid][:name] %></td>
-    <td><%= @best[:mid][:percent].round(2) %></td>
-    <td><%= @best[:mid][:wins] %></td>
-    <td><%= @best[:mid][:losses] %></td>
-    <td><%= @best[:mid][:total] %></td>
-  </tr>
-  <tr>
-    <td>Jun</td>
-    <td><%= @best[:jun][:name] %></td>
-    <td><%= @best[:jun][:percent].round(2) %></td>
-    <td><%= @best[:jun][:wins] %></td>
-    <td><%= @best[:jun][:losses] %></td>
-    <td><%= @best[:jun][:total] %></td>
-  </tr>
-  <tr>
-    <td>ADC</td>
-    <td><%= @best[:adc][:name] %></td>
-    <td><%= @best[:adc][:percent].round(2) %></td>
-    <td><%= @best[:adc][:wins] %></td>
-    <td><%= @best[:adc][:losses] %></td>
-    <td><%= @best[:adc][:total] %></td>
-  </tr>
-  <tr>
-    <td>Sup</td>
-    <td><%= @best[:sup][:name] %></td>
-    <td><%= @best[:sup][:percent].round(2) %></td>
-    <td><%= @best[:sup][:wins] %></td>
-    <td><%= @best[:sup][:losses] %></td>
-    <td><%= @best[:sup][:total] %></td>
-  </tr>
+  <% @best.each do |lane| %>
+    <tr>
+      <td><%= lane.role %></td>
+      <td><%= lane.name %></td>
+      <td><%= lane.percent %></td>
+      <td><%= lane.wins %></td>
+      <td><%= lane.losses %></td>
+      <td><%= lane.total %></td>
+    </tr>
+  <% end %>
 </table>
 <h6>Minimum 6 Games</h6>

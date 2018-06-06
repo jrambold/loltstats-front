@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    begin
+    if Team.exists?(name: params[:team])
       team = Team.find(params[:team])
-    rescue ActiveRecord::RecordNotFound => invalid
+    else
       team = Team.create(name: params[:team])
     end
 

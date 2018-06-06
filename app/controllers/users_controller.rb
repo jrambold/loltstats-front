@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     user = current_user.users.new(team: team, leaguename: params[:name])
 
     if user.save
-      session[:user_id] = user.id
-      redirect_to google_user_path(currentUser)
+      redirect_to google_user_path(current_user)
     else
       render :new
     end

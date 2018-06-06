@@ -9,7 +9,7 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <h1 class="navbar-brand">LoL Team Stats</h1>
+        <a href="" class="navbar-brand">LoL Team Stats</a>
         <ul class="nav navbar-nav">
             <li>
               <% if current_user %>
@@ -23,6 +23,8 @@
             </li>
         </ul>
     </nav>
-    <%= yield %>
+    <div class="container">
+        <%= yield %>
+    </div>
   </body>
 </html>

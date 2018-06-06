@@ -1,18 +1,17 @@
-<div class="container">
-    <h1>Your Users</h1>
-    <ul>
-    <% @guser.users.each do |player| %>
-      <li><%= link_to player.leaguename, user_path(player) %> on team <%= link_to player.team.name, team_path(player.team) %></li>
-    <% end %>
-    </ul>
-    <div class="logo sm-col-left">
-      <h5>Add a user</h5>
-      <%= form_tag :users, method: :post, class: "form-inline" do %>
-        <div class="form-group search-field">
-          <%= text_field_tag :name, "League Username", class: "form-control" %>
-          <%= text_field_tag :team, "Team", class: "form-control" %>
-          <%= submit_tag "Add Player", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+
+<h1>Your Users</h1>
+<ul>
+<% @guser.users.each do |player| %>
+  <li><%= link_to player.leaguename, user_path(player) %> on team <%= link_to player.team.name, team_path(player.team) %></li>
+<% end %>
+</ul>
+<div class="logo sm-col-left">
+  <h5>Add a user</h5>
+  <%= form_tag :users, method: :post, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= text_field_tag :name, "League Username", class: "form-control" %>
+      <%= text_field_tag :team, "Team", class: "form-control" %>
+      <%= submit_tag "Add Player", class: "btn btn-primary" %>
     </div>
+  <% end %>
 </div>

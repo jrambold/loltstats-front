@@ -13,7 +13,10 @@ class TeamPresenter
     def lanestats(best)
       best.each do |lane|
         @lanes << Lane.new(lane[0],
-                lane[1][:name])
+                lane[1][:name],
+                lane[1][:percent],
+                lane[1][:wins],
+                lane[1][:losses])
       end
 
     end

@@ -1,4 +1,9 @@
 <h1>Your Users</h1>
+<ul>
+<% guser.each do |player| %>
+  <li><%= link_to player.leaguename, user_path(player) %> on team <%= link_to player.team.name, team_path(player.team) %></li>
+<% end %>
+</ul>
 
 <div class="logo sm-col-left">
   <h5>Add a user</h5>

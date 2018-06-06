@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @current_user ||= GoogleUser.find(session[:user_id]) if session[:user_id]
+    @current_user ||= GoogleUser.find(session[:id]) if session[:id]
   end
 end

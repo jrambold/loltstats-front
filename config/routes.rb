@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :users, only: ['new', 'show', 'create']
   resources :teams, only: ['index', 'show', 'new', 'create']
+  resources :google_users, only: ['show']
 end

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     guser = GoogleUser.update_or_create(request.env['omniauth.auth'])
     session[:id] = guser.id
-    redirect_to root_path
+    redirect_to google_user_path(guser)
   end
 
   def destroy

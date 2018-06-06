@@ -1,0 +1,12 @@
+<h1>Hello World</h1>
+
+<div class="logo sm-col-left">
+  <h5>Add a user</h5>
+  <%= form_tag :users, method: :post, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= text_field_tag :name, "League Username", class: "form-control" %>
+      <%= text_field_tag :team, "Team", class: "form-control" %>
+      <%= submit_tag "Add Player", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

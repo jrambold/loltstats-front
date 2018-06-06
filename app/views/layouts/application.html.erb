@@ -13,8 +13,7 @@
     <nav>
       <h1>LoL Team Stats</h1>
       <% if current_user %>
-        <%= link_to current_user.username, user_path(current_user) %>
-        <%= link_to current_user.team.name, team_path(current_user.team) %>
+        <%= link_to current_user.name, google_user_path(current_user) %>
         <%= link_to 'Logout', logout_path %>
       <% else %>
         <%= link_to "Log In", google_oauth2_login_path %>

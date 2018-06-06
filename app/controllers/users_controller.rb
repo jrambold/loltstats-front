@@ -4,10 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    begin
+      team = Team.find(params[:team])
+    rescue => ActiveRecord::RecordNotFound
+      team = Team.create(name: params[:team])
+    end
+
+    user = current_user.users.new(team: team, leaguename: params[:name])
+
     if user.save
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to google_user_path(currentUser)
     else
       render :new
     end
@@ -19,9 +26,4 @@ class UsersController < ApplicationController
     @solo_stats = up.solo_lanes
     @flex_stats = up.flex_lanes
   end
-
-  private
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
 end

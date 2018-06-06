@@ -21,12 +21,12 @@ class User < ApplicationRecord
   end
 
   private
-    def add_teammember(user)
+    def add_user(user)
       backend = Backend.new
       backend.add_teammember(user)
     end
 
-    def delete_teammember(user)
+    def delete_user(user)
       backend = Backend.new
       backend.delete_teammember(user)
     end

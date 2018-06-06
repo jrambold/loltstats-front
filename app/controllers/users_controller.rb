@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    require 'pry'; binding.pry
     if Team.exists?(name: params[:team])
-      team = Team.find(name: params[:team])
+      team = Team.find_by(name: params[:team])
     else
       team = Team.create(name: params[:team])
     end

@@ -21,7 +21,8 @@ class Team < ApplicationRecord
 
   def best_by_position(min=6)
     backend = Backend.new
-    backend.best_by_position(self, min)
+    # backend.best_by_position(self, min)
+    "hello"
   end
 
   private

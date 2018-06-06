@@ -5,6 +5,6 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @best = TeamPresenter.new(@team.best_by_position)
+    @best = TeamPresenter.new(@team.best_by_position).lanes
   end
 end

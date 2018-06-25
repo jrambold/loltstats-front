@@ -39,7 +39,7 @@ class BackendService
   end
 
   def update_team_flex_matches(team_name)
-    @headers['team'] = player_name
+    @headers['team'] = team_name
     get_url("/teams/populate")
   end
 

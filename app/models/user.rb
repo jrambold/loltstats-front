@@ -20,6 +20,12 @@ class User < ApplicationRecord
     backend.single_player_flex_stats(self)
   end
 
+  def update
+    backend = Backend.new
+    backend.update_solo_matches(self)
+    backend.update_team_flex_matches(self.team)
+  end
+
   private
     def add_user(user)
       backend = Backend.new

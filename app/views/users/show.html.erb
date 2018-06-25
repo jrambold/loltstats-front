@@ -1,4 +1,11 @@
 <h2><%= @user.leaguename %></h2>
+<div>
+  <%= form_tag team_path(@team), method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= submit_tag "update", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 <h3>Solo Stats</h3>
 <table class="table">
     <thead class="thead-dark">

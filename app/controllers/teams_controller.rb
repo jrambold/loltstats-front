@@ -10,6 +10,9 @@ class TeamsController < ApplicationController
     else
       @min_games = 6
     end
+    if params.key?(:commit) && params[:commit] == 'update'
+      @team.update_matches
+    end
     @best = TeamPresenter.new(@team.best_by_position(@min_games)).lanes
   end
 end

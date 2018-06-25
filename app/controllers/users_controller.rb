@@ -21,6 +21,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if params.key?(:commit) && params[:commit] == 'update'
+      @user.update
+    end
     up = UserPresenter.new(@user.solo_stats, @user.flex_stats)
     @solo_stats = up.solo_lanes
     @flex_stats = up.flex_lanes

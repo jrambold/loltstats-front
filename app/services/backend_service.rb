@@ -1,6 +1,6 @@
 class BackendService
   def initialize
-    @headers = { 'FRONT_KEY' = ENV['FRONT_KEY'] }
+    @headers = { 'FRONT_KEY' => ENV['FRONT_KEY'] }
   end
 
   def get_url(url)

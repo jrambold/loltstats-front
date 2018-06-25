@@ -24,4 +24,12 @@
     </tr>
   <% end %>
 </table>
-<h6>Minimum 6 Games</h6>
+<div>
+  <%= link_to "MinGames", team_path(@team) %>
+  <%= form_tag :teams, method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= text_field_tag :min, @min_games.to_s, class: "form-control" %>
+      <%= submit_tag "Min Games", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

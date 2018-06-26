@@ -43,6 +43,10 @@ class Backend
     raw_data = backend.solo_stats(user.leaguename)
   end
 
+  def single_player_flex_stats(user)
+    raw_data = backend.single_player_flex_stats(user.leaguename)
+  end
+
   def custom_team(player_top, player_mid, player_jun, player_adc, player_sup)
     top = nil
     mid = nil
@@ -57,14 +61,14 @@ class Backend
     backend.custom_team(top, mid, jun, adc, sup)
   end
 
-  def single_player_flex_stats(user)
-    raw_data = backend.single_player_flex_stats(user.leaguename)
+
+  def one_players_flex_stats(player_1)
+    raw_data = backend.one_players_flex_stats(player_1.leaguename)
   end
 
   def two_players_flex_stats(player_1, player_2)
     raw_data = backend.two_players_flex_stats(player_1.leaguename,
-                                                player_2.leaguename,
-                                                player_3.leaguename)
+                                                player_2.leaguename)
   end
 
   def three_players_flex_stats(player_1, player_2, player_3)

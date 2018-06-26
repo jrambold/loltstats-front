@@ -59,6 +59,11 @@ class BackendService
     get_url("/teams/solo_stats")
   end
 
+  def single_player_flex_stats(player_name)
+    @headers['name'] = player_name
+    get_url("/teams/solo")
+  end
+
   def custom_team(player_top, player_mid, player_jun, player_adc, player_sup)
     @headers['top'] = player_top if player_top
     @headers['mid'] = player_mid if player_mid
@@ -68,9 +73,10 @@ class BackendService
     get_url("/teams/custom_team")
   end
 
-  def single_player_flex_stats(player_name)
-    @headers['name'] = player_name
-    get_url("/teams/solo")
+  def one_players_flex_stats(player_1)
+    @headers['p1'] = player_1
+    @headers['p2'] = player_1
+    get_url("/teams/duo")
   end
 
   def two_players_flex_stats(player_1, player_2)

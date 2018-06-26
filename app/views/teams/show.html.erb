@@ -66,3 +66,25 @@
     <li>Win Percentage <%= @custom[:percent] %></li>
   </ul>
 <% end %>
+<br>
+<h3>Any Position Team Stats</h3>
+<div>
+  <%= form_tag team_path(@team), method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= collection_select nil, "p1", @team.users, :id, :leaguename, include_blank: true %>
+      <%= collection_select nil, "p2", @team.users, :id, :leaguename, include_blank: true %>
+      <%= collection_select nil, "p3", @team.users, :id, :leaguename, include_blank: true %>
+      <%= collection_select nil, "p4", @team.users, :id, :leaguename, include_blank: true %>
+      <%= collection_select nil, "p5", @team.users, :id, :leaguename, include_blank: true %>
+      <%= submit_tag "together", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<% if @together %>
+  <ul>
+    <li>Wins <%= @together[:wins] %></li>
+    <li>Losses <%= @together[:losses] %></li>
+    <li>Total Games <%= @together[:total] %></li>
+    <li>Win Percentage <%= @together[:percent] %></li>
+  </ul>
+<% end %>

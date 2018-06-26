@@ -63,7 +63,7 @@
     <li>Wins <%= @custom[:wins] %></li>
     <li>Losses <%= @custom[:losses] %></li>
     <li>Total Games <%= @custom[:total] %></li>
-    <li>Win Percentage <%= @custom[:percent] %></li>
+    <li>Win Percentage <%= @custom[:percent].round(2) %>%</li>
   </ul>
 <% end %>
 <br>
@@ -85,6 +85,6 @@
     <li>Wins <%= @together[:wins] %></li>
     <li>Losses <%= @together[:losses] %></li>
     <li>Total Games <%= @together[:total] %></li>
-    <li>Win Percentage <%= @together[:percent] %></li>
+    <li>Win Percentage <%= @together[:percent].round(2) %>%</li>
   </ul>
 <% end %>

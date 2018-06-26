@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user && @user.google_user == current_user
     if params.key?(:commit) && params[:commit] == 'update'
       @user.update
     end

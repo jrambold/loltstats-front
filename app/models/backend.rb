@@ -44,13 +44,17 @@ class Backend
   end
 
   def custom_team(player_top, player_mid, player_jun, player_adc, player_sup)
-    top, mid, jun, adc, sup = [nil] * 5
+    top = nil
+    mid = nil
+    jun = nil
+    adc = nil
+    sup = nil
     top = player_top.leaguename if player_top
     mid = player_mid.leaguename if player_mid
     jun = player_jun.leaguename if player_jun
     adc = player_adc.leaguename if player_adc
     sup = player_sup.leaguename if player_sup
-    custom_team(top, mid, jun, adc, sup)
+    backend.custom_team(top, mid, jun, adc, sup)
   end
 
   def single_player_flex_stats(user)

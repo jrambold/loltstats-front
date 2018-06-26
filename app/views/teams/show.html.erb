@@ -39,3 +39,30 @@
     </div>
   <% end %>
 </div>
+<br>
+<h3>Custom Team Stats</h3>
+<div>
+  <%= form_tag team_path(@team), method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= label_tag 'top' %>
+      <%= collection_select nil, "top", @team.users, :id, :leaguename, include_blank: true %>
+      <%= label_tag 'mid' %>
+      <%= collection_select nil, "mid", @team.users, :id, :leaguename, include_blank: true %>
+      <%= label_tag 'jun' %>
+      <%= collection_select nil, "jun", @team.users, :id, :leaguename, include_blank: true %>
+      <%= label_tag 'adc' %>
+      <%= collection_select nil, "adc", @team.users, :id, :leaguename, include_blank: true %>
+      <%= label_tag 'sup' %>
+      <%= collection_select nil, "sup", @team.users, :id, :leaguename, include_blank: true %>
+      <%= submit_tag "custom", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<% if @custom %>
+  <ul>
+    <li>Wins <%= @custom[:wins] %></li>
+    <li>Losses <%= @custom[:losses] %></li>
+    <li>Total Games <%= @custom[:total] %></li>
+    <li>Win Percentage <%= @custom[:percent] %></li>
+  </ul>
+<% end %>

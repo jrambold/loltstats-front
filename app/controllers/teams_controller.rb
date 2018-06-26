@@ -5,14 +5,21 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    if params.key?(:min)
-      @min_games = params[:min].to_i
+    if current_user && @team.google_users.exists?(current_user.id)
+      if params.key?(:min)
+        @min_games = params[:min].to_i
+      else
+        @min_games = 6
+      end
+      if params.key?(:commit) && params[:commit] == 'update'
+        @team.update_matches
+      end
+      if params.key?(:commit) && params[:commit] == 'custom'
+        @custom = @team.custom_team(params[:top], params[:mid], params[:jun], params[:adc], params[:sup])
+      end
+      @best = TeamPresenter.new(@team.best_by_position(@min_games)).lanes
     else
-      @min_games = 6
+      redirect_to root_path
     end
-    if params.key?(:commit) && params[:commit] == 'update'
-      @team.update_matches
-    end
-    @best = TeamPresenter.new(@team.best_by_position(@min_games)).lanes
   end
 end
